@@ -1,0 +1,10 @@
+{
+  "version": "1.0.0",
+  "download_url": "https://geervan.github.io/sample/app-release.apk",
+  "changelog": [
+    "Initial stable release",
+    "Premium MUJ-themed Dashboard",
+    "Optimized Timetable layout",
+    "Quick access to Portal Services"
+  ]
+}
