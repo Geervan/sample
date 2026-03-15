@@ -1,10 +1,8 @@
 {
-  "version": "1.0.3",
+  "version": "1.0.4",
   "download_url": "https://geervan.github.io/sample/app-release.apk",
   "changelog": [
-    "Saved Password functionality for login",
-    "Faster caching",
-    "Fixed some minute bugs",
+    "Updated Attendance Tracker",
     "Sorry guys for these many short updates oof"
   ]
 }
