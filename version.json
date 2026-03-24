@@ -1,8 +1,8 @@
 {
-  "version": "1.0.4",
+  "version": "1.0.5",
   "download_url": "https://geervan.github.io/sample/app-release.apk",
   "changelog": [
-    "Updated Attendance Tracker",
-    "Sorry guys for these many short updates oof"
+    "Added instant info glancing cards",
+    "Made the home page UI better"
   ]
 }
