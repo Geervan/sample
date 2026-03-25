@@ -1,8 +1,10 @@
 {
-  "version": "1.0.5",
+  "version": "1.0.6",
   "download_url": "https://geervan.github.io/sample/app-release.apk",
   "changelog": [
     "Added instant info glancing cards",
-    "Made the home page UI better"
+    "Faster updating logic",
+    "Made the home page UI better",
+    "Remainder to delete the previously downloaded files for storage XD"
   ]
 }
