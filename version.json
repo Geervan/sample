@@ -1,11 +1,8 @@
 {
-  "version": "1.0.7",
-  "download_url": "https://geervan.github.io/sample/app-release.apk",
+  "version": "1.0.8",
+  "download_url": "https://geervan.github.io/sample/",
   "changelog": [
-    "Added instant info glancing cards",
-    "Faster updating logic",
-    "Made the home page UI better",
-    "Remainder to delete the previously downloaded files for storage XD",
-    "Bhai mujhe khatam mat karna pls"
+    "ETE marks werent showing so yeah",
+    "Total marks column added too"
   ]
 }
