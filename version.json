@@ -1,10 +1,7 @@
 {
-  "version": "2.0.1",
+  "version": "2.0.2",
   "download_url": "https://geervan.github.io/sample/",
   "changelog": [
-    "Added the customise button",
-    "You can now customise the dashboard to your liking",
-    "Customise the cards to your preferences",
-    "and choose which data and how you want to view them"
+    "Was bored UI changes thats it"
   ]
 }
