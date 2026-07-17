@@ -6,17 +6,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SLCM Mobile | For MUJ</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&family=Bangers&family=Comic+Neue:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Outfit', sans-serif; background: #000; color: #fff; }
+        body { font-family: 'Outfit', sans-serif; transition: background-color 0.2s; }
         .btn-orange { background: #CD5C28; transition: all 0.2s; }
-        .btn-orange:hover { background: #BA3300; transform: translateY(-2px); shadow: 0 10px 30px -10px rgba(205, 92, 40, 0.5); }
-        .logo-glow { shadow: 0 0 20px rgba(205, 92, 40, 0.1); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .btn-orange:hover { background: #BA3300; transform: translateY(-2px); box-shadow: 0 10px 30px -10px rgba(205, 92, 40, 0.5); }
+        .logo-glow { box-shadow: 0 0 20px rgba(205, 92, 40, 0.1); border: 1px solid rgba(255, 255, 255, 0.1); }
+        
+        /* Neobrutalist / Comic style classes */
+        .comic-border {
+            border: 4px solid #000000;
+        }
+        .comic-shadow {
+            box-shadow: 4px 4px 0px 0px #000000;
+        }
+        .comic-shadow-hover {
+            transition: transform 0.1s, box-shadow 0.1s;
+        }
+        .comic-shadow-hover:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0px 0px #000000;
+        }
+        .comic-shadow-hover:active {
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0px 0px #000000;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(-2deg) scale(1.02); }
+            75% { transform: rotate(2deg) scale(1.02); }
+        }
+        .shake-hover:hover {
+            animation: shake 0.25s infinite alternate ease-in-out;
+        }
+
+        @keyframes wiggle {
+            0%, 100% { transform: rotate(-1deg); }
+            50% { transform: rotate(1.5deg); }
+        }
+        .wiggle-slow {
+            animation: wiggle 3s infinite ease-in-out;
+        }
     </style>
 </head>
-<body class="h-screen w-full flex flex-col items-center justify-center overflow-hidden p-6 border-t-[3px] border-[#CD5C28]">
+<body id="main-body" class="h-[100dvh] w-full flex flex-col items-center justify-center overflow-hidden p-6">
     
-    <div class="w-full max-w-sm flex flex-col items-center text-center">
+    <!-- View 1: Android & Desktop -->
+    <div id="android-desktop-view" class="hidden w-full max-w-sm flex flex-col items-center text-center">
         
         <!-- Logo Image -->
         <div class="mb-10">
@@ -25,7 +62,7 @@
 
         <!-- Branding -->
         <div class="mb-10">
-            <h1 class="text-4xl font-black tracking-tighter mb-4 uppercase">
+            <h1 class="text-4xl font-black tracking-tighter mb-4 uppercase text-white">
                 MUJSLCM <span class="text-[#CD5C28]">Mobile</span>
             </h1>
             <div class="space-y-1">
@@ -36,7 +73,7 @@
 
         <!-- Download Action -->
         <div class="w-full space-y-5">
-            <a href="app-release.apk" class="btn-orange block w-full py-5 rounded-xl font-black text-lg transition-all active:scale-95 shadow-xl shadow-orange-950/20">
+            <a href="app-release.apk" class="btn-orange block w-full py-5 rounded-xl font-black text-lg text-white transition-all active:scale-95 shadow-xl shadow-orange-950/20">
                 Download APK
             </a>
             
@@ -48,16 +85,17 @@
                 <span>56 MB</span>
             </div>
         </div>
+
         <!-- Privacy Notice -->
-<div class="mt-8 text-center">
-    <p class="text-[16px] font-medium text-zinc-500">
-        Your privacy is my first priority. <br>
-        <a href="https://docs.google.com/document/d/1QYJJTNKFG_mg2uNC5h5WJ0Iu1_HntBWgXqRgbhigrNk/edit?usp=sharing"
-           class="text-[#CD5C28] hover:underline decoration-2 transition-all">
-            Privacy Policy
-        </a>
-    </p>
-</div>
+        <div class="mt-8 text-center">
+            <p class="text-[16px] font-medium text-zinc-500">
+                Your privacy is my first priority. <br>
+                <a href="https://docs.google.com/document/d/1QYJJTNKFG_mg2uNC5h5WJ0Iu1_HntBWgXqRgbhigrNk/edit?usp=sharing"
+                   class="text-[#CD5C28] hover:underline decoration-2 transition-all">
+                    Privacy Policy
+                </a>
+            </p>
+        </div>
 
         <!-- Footer with LinkedIn -->
         <footer class="mt-10 space-y-1">
@@ -69,5 +107,171 @@
 
     </div>
 
+    <!-- View 2: iOS Comic Goofy View -->
+    <div id="ios-view" class="hidden w-full max-w-sm flex flex-col items-center text-center space-y-5 select-none my-auto">
+        
+        <!-- Goofy Logo/Header Section -->
+        <div class="relative w-full flex flex-col items-center">
+            <div class="relative mb-4">
+                <img src="logo.jpg" alt="SLCM Mobile Logo" class="w-16 h-16 rounded-2xl border-4 border-black shadow-[3px_3px_0_0_rgba(0,0,0,1)] transition-transform hover:rotate-12 duration-300">
+                <div class="absolute -bottom-2 -right-2 bg-red-500 text-white p-1 rounded-full border-2 border-black text-xs font-black shadow-[2px_2px_0_0_rgba(0,0,0,1)] rotate-12">
+                    🍏🔒
+                </div>
+            </div>
+
+            <div class="transform -rotate-1 mb-4 bg-[#FF4B91] px-5 py-2 border-4 border-black shadow-[3px_3px_0_0_rgba(0,0,0,1)] rounded-md inline-block">
+                <h1 class="font-['Bangers'] text-3xl sm:text-4xl tracking-wide text-white uppercase select-none leading-none">
+                    iOS? OH NO! 😭
+                </h1>
+            </div>
+            
+            <!-- Speech bubble style container (Condensed) -->
+            <div class="relative bg-white text-black p-4 border-4 border-black shadow-[4px_4px_0_0_rgba(0,0,0,1)] rounded-2xl w-full wiggle-slow">
+                <p class="font-bold text-xs sm:text-sm leading-snug">
+                    "This is the landing page for the <span class="underline decoration-wavy decoration-[#FF4B91] decoration-2 font-extrabold">unofficial SLCM Mobile app</span> (it's super fast like data under 5 secs fast). Sadly, Apple's walled garden blocked you out. Android only!"
+                </p>
+                <div class="absolute -bottom-[20px] left-1/2 transform -translate-x-1/2 w-0 h-0 border-[10px] border-solid border-transparent border-t-white z-10"></div>
+                <div class="absolute -bottom-[28px] left-1/2 transform -translate-x-1/2 w-0 h-0 border-[14px] border-solid border-transparent border-t-black"></div>
+            </div>
+        </div>
+
+        <!-- Info / Walled Garden Badges (Compact) -->
+        <div class="flex gap-2 justify-center w-full">
+            <span class="bg-[#FF9E00] text-black text-[10px] font-black px-2 py-1 border-2 border-black rounded shadow-[2px_2px_0_0_rgba(0,0,0,1)] rotate-[-1deg]">
+                🔒 WALLED GARDENED
+            </span>
+            <span class="bg-[#40F8FF] text-black text-[10px] font-black px-2 py-1 border-2 border-black rounded shadow-[2px_2px_0_0_rgba(0,0,0,1)] rotate-[1deg]">
+                ⚡ ANDROID ONLY
+            </span>
+        </div>
+
+        <!-- Send Button CTA -->
+        <div class="w-full space-y-3 pt-2">
+            <button onclick="shareToFriends()" class="bg-[#58FF43] text-black font-['Bangers'] tracking-wider text-xl py-4 px-6 rounded-xl border-4 border-black shadow-[4px_4px_0_0_rgba(0,0,0,1)] comic-shadow-hover shake-hover w-full flex items-center justify-center gap-2 cursor-pointer transition-all uppercase select-none">
+                👉 Send to Android Friends 👈
+            </button>
+            
+            <!-- Highly visible Joke Callout -->
+            <div class="bg-[#FFE600] text-black p-3 border-4 border-black shadow-[3px_3px_0_0_rgba(0,0,0,1)] rounded-xl text-[11px] font-extrabold rotate-[1deg] leading-snug">
+                💬 THE IMESSAGE BLUE BUBBLE TAX: <br>
+                <span class="text-xs font-black uppercase text-red-600">Yes, we are using you for free distribution!</span>
+            </div>
+        </div>
+
+        <!-- Compact Footer -->
+        <div class="space-y-2 pt-2">
+            <p class="text-[10px] font-bold text-zinc-600">
+                iPhone privacy matters. Read the 
+                <a href="https://docs.google.com/document/d/1QYJJTNKFG_mg2uNC5h5WJ0Iu1_HntBWgXqRgbhigrNk/edit?usp=sharing" target="_blank" class="text-black underline font-black hover:text-[#FF4B91]">Privacy Policy</a>.
+            </p>
+            <footer class="text-[9px] font-black text-zinc-700 tracking-[0.12em] uppercase">
+                Built for MUJ by <a href="https://www.linkedin.com/in/geervan" target="_blank" class="text-black underline hover:text-[#FF4B91]">Geervan</a>
+            </footer>
+        </div>
+
+    </div>
+
+    <!-- On-screen Comic style toast alert -->
+    <div id="comic-toast" class="fixed top-8 left-1/2 transform -translate-x-1/2 bg-[#58FF43] text-black font-['Bangers'] text-2xl px-6 py-3 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] rounded-xl opacity-0 scale-0 pointer-events-none transition-all duration-300 z-50">
+        KAPOW! COPIED!
+    </div>
+
+    <!-- Script logic for detection and interaction -->
+    <script>
+        function init() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const platformParam = urlParams.get('platform');
+            
+            let isIOS = false;
+            if (platformParam === 'ios') {
+                isIOS = true;
+            } else if (platformParam === 'android') {
+                isIOS = false;
+            } else {
+                // Device detection
+                const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+                const isIOSUserAgent = /iPad|iPhone|iPod/.test(userAgent) && !window.MSStream;
+                const isMacTouch = navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1;
+                isIOS = isIOSUserAgent || isMacTouch;
+            }
+
+            const body = document.getElementById('main-body');
+            const androidView = document.getElementById('android-desktop-view');
+            const iosView = document.getElementById('ios-view');
+
+            if (isIOS) {
+                // Style body for iOS comic view
+                body.className = "h-[100dvh] w-full flex flex-col items-center justify-center p-6 bg-[#FFDE4D] text-black font-['Comic_Neue'] relative select-none overflow-hidden";
+                body.style.backgroundImage = "radial-gradient(rgba(0, 0, 0, 0.15) 15%, transparent 16%)";
+                body.style.backgroundSize = "16px 16px";
+                body.style.borderTop = "none";
+                
+                androidView.classList.add('hidden');
+                iosView.classList.remove('hidden');
+            } else {
+                // Style body for default Android/Desktop dark view
+                body.className = "h-[100dvh] w-full flex flex-col items-center justify-center overflow-hidden p-6 border-t-[3px] border-[#CD5C28] bg-black text-white font-['Outfit']";
+                body.style.backgroundImage = "none";
+                body.style.backgroundSize = "auto";
+                
+                iosView.classList.add('hidden');
+                androidView.classList.remove('hidden');
+            }
+        }
+
+        async function shareToFriends() {
+            const shareData = {
+                title: 'SLCM Mobile (Unofficial)',
+                text: 'Bro, stop using that slow SLCM website. Use this unofficial SLCM Mobile app instead, it\'s way faster!',
+                url: window.location.origin + window.location.pathname
+            };
+            
+            if (navigator.share) {
+                try {
+                    await navigator.share(shareData);
+                    showToast("BOOM! SHARED!");
+                } catch (err) {
+                    if (err.name !== 'AbortError') {
+                        copyFallback(shareData.text + ' ' + shareData.url);
+                    }
+                }
+            } else {
+                copyFallback(shareData.text + ' ' + shareData.url);
+            }
+        }
+
+        function copyFallback(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                showToast("KAPOW! COPIED!");
+            }).catch(() => {
+                // Fallback for older browsers
+                const textArea = document.createElement("textarea");
+                textArea.value = text;
+                document.body.appendChild(textArea);
+                textArea.select();
+                try {
+                    document.execCommand('copy');
+                    showToast("KAPOW! COPIED!");
+                } catch (err) {
+                    showToast("OOF! COPY FAILED :(");
+                }
+                document.body.removeChild(textArea);
+            });
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById('comic-toast');
+            toast.innerText = message;
+            toast.classList.remove('opacity-0', 'scale-0', 'pointer-events-none');
+            toast.classList.add('opacity-100', 'scale-100', 'rotate-[-3deg]');
+            setTimeout(() => {
+                toast.classList.remove('opacity-100', 'scale-100', 'rotate-[-3deg]');
+                toast.classList.add('opacity-0', 'scale-0', 'pointer-events-none');
+            }, 2500);
+        }
+
+        // Run detection immediately
+        init();
+    </script>
 </body>
 </html>
