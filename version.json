@@ -1,10 +1,10 @@
 {
-  "version": "2.0.4",
+  "version": "2.0.5",
   "download_url": "https://geervan.github.io/sample/",
   "changelog": [
-    "added some last minute UI adjustments",
-    "good reminder to delete other versions of the app to clear storage",
-    "if you liked using this, please share to your friends too!",
-    "i really hope yall liked it"
+    "Reduction in size from 57mb -> 24mb",
+    "app is blazing fast under 1 sec load",
+    "timetable now clearly marks breaks if applicable",
+    "sponspor button added if interested"
   ]
 }
