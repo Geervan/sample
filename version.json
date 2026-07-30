@@ -1,10 +1,11 @@
 {
-  "version": "2.0.6",
+  "version": "2.0.7",
   "download_url": "https://geervan.github.io/sample/",
   "changelog": [
+    "missed removing a test button, sorry if you have to update again",
     "Reduction in size from 57mb -> 24mb",
     "app is blazing fast under 1 sec load",
     "timetable now clearly marks breaks if applicable",
-    "sponspor button added if interested"
+    "sponsor button added if interested"
   ]
 }
