@@ -1,11 +1,10 @@
 {
-  "version": "2.0.8",
+  "version": "2.0.9",
   "download_url": "https://geervan.github.io/sample/",
   "changelog": [
-    "missed removing a test button and resolved a cache edge case, sorry if you have to update again",
-    "Reduction in size from 57mb -> 24mb",
-    "app is blazing fast under 1 sec load",
-    "timetable now clearly marks breaks if applicable",
-    "sponsor button added if interested"
+    "added a live + present tag to the classes {if attendance is taken between classes the present/absent is now shown}",
+    "fixed a bug which wouldnt show the timetable on holidays",
+    "non functional bug fixed, new passwords get synced automatically if saved account is chosen",
+    "sorry for anyone who just installed the app, please install this update"
   ]
 }
