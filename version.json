@@ -1,10 +1,10 @@
 {
-  "version": "2.0.9",
+  "version": "2.0.10",
   "download_url": "https://geervan.github.io/sample/",
   "changelog": [
-    "added a live + present tag to the classes {if attendance is taken between classes the present/absent is now shown}",
-    "fixed a bug which wouldnt show the timetable on holidays",
-    "non functional bug fixed, new passwords get synced automatically if saved account is chosen",
-    "sorry for anyone who just installed the app, please install this update"
+    "hey guys, uni had this new anti-bot system which blocked our app, so made a bypassing change, PLEASE PLEASE install this update if you wish to use the app",
+    "you can only see this popup if you are logged in, so if you find someone complaining about the app, ask them to update directly from the website",
+    "thank you so much for using the app",
+    "cheers - Geervan"
   ]
 }
